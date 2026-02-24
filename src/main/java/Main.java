@@ -14,8 +14,13 @@ public static void main(String[] args) {
             System.out.println("Phone:");
             String phone = scanner.nextLine();
 
-            Contact person = new Contact(name, phone);
-            myContacts.contactsList.add(person);
+            if (ValidPhone(phone)) {
+                Contact person = new Contact(name, phone);
+                myContacts.contactsList.add(person);
+            } else {
+                System.out.println("Error: Invalid phone format! Use numbers, (), or -.");
+            }
+
         } else if (option == 2) {
             System.out.println("What contact would you like to remove?");
             String removeContact = scanner.nextLine();
@@ -36,4 +41,17 @@ public static void main(String[] args) {
             isRunning = false;
         }
     }
+}
+
+public static boolean ValidPhone(String phone) {
+    if (phone.isEmpty()) return false;
+
+    for (int i = 0; i < phone.length(); i++) {
+        char c = phone.charAt(i);
+
+        if (!(Character.isDigit(c) || c == '(' || c == ')' || c == '-' || c == ' '))
+            return false;
+        }
+
+        return true;
 }
