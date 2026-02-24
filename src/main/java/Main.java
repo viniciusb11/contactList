@@ -17,7 +17,7 @@ public static void main(String[] args) {
             System.out.println("Phone:");
             String phone = scanner.nextLine();
 
-            if (ValidPhone(phone)) {
+            if (isValidPhone(phone)) {
                 Contact person = new Contact(name, phone);
                 myContacts.contactsList.add(person);
             } else {
@@ -56,13 +56,13 @@ public static void main(String[] args) {
     }
 }
 
-public static boolean ValidPhone(String phone) {
+public static boolean isValidPhone(String phone) {
     if (phone.isEmpty()) return false;
 
     for (int i = 0; i < phone.length(); i++) {
         char c = phone.charAt(i);
 
-        if (!(Character.isDigit(c) || c == '(' || c == ')' || c == '-' || c == ' '))
+        if (!(Character.isDigit(c) || c == '(' || c == ')' || c == '-' || c == ' ' || c == '.' || c == 'x'))
             return false;
         }
 
