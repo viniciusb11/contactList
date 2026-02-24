@@ -45,7 +45,7 @@ public static void main(String[] args) {
                 Contact dataTest = new Contact(name, phone);
                 myContacts.contactsList.add(dataTest);
             }
-            System.out.println("10 random contacts generated succesfully!");
+            System.out.println("10 random contacts generated successfully!");
         } else if (option == 5){
             System.out.println("Bye!");
             isRunning = false;
